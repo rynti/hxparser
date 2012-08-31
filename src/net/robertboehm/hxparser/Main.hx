@@ -27,6 +27,7 @@ import net.robertboehm.hxparser.data.TypeFunction;
 import net.robertboehm.hxparser.data.TypeMember;
 import net.robertboehm.hxparser.data.TypeProperty;
 import net.robertboehm.hxparser.data.Visibility;
+import net.robertboehm.hxparser.Human;
 
 
 /**
