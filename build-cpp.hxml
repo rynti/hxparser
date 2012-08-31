@@ -1,0 +1,5 @@
+-cpp bin/cpp
+-cp src
+-main net.robertboehm.hxparser.Main
+-D haxe3
+-cmd "mv bin/cpp/Main.exe bin/cpp/hxparser.exe"

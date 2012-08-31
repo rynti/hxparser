@@ -1,0 +1,5 @@
+-cs bin/cs
+-cp src
+-main net.robertboehm.hxparser.Main
+-D haxe3
+-D no-compilation
