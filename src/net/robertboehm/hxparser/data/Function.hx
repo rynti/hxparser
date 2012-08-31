@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents a function that's not a direct member of a type, for instance a function that lies
  * within another function.

@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents a property of a type. This means it's NOT a field!
  * Example (Inside a class): var name(default, null):String;

@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents one type. This could be either a class, typedef or struct.
  * Example: class Human {}

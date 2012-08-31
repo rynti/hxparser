@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents a function of a type.
  * Example (Inside a class): function doSomething() {}

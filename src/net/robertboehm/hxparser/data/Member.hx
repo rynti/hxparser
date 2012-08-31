@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents any member (Variable, function or property). However, it doesn't necessarily mean that
  * it's a direct member of a type.

@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents a direct member of a type. This means it could either be a field, function or
  * property.

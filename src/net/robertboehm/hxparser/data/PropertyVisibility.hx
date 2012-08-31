@@ -17,6 +17,7 @@
 
 package net.robertboehm.hxparser.data;
 
+
 /**
  * Represents the state of visibility of a property access. Each property has two
  * PropertyVisibilities: The readability as well as the writability.
