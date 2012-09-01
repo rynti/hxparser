@@ -15,31 +15,44 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with hxparser. If not, see: <http://www.gnu.org/licenses/>.
 
-package net.robertboehm.hxparser.data;
+package net.robertboehm.hxparser;
 
 
 /**
- * Represents a function of a type.
- * Example (Inside a class): function doSomething() {}
- * 
+ * ...
  * @author Robert Böhm
  */
-class TypeFunction extends TypeMember {
+class AttributeTokenList {
     
-    public var base:Function;
-    public var code:Codeblock;
-    public var parameters:Array<Member>;
-    
-    
+    public var isPublic:Bool = false;
+    public var isPrivate:Bool = false;
+    public var isStatic:Bool = false;
+    public var isInline:Bool = false;
+
     public function new() {
-        super();
-        
-        parameters = new Array<Member>();
     }
     
+    public function applyToken(t:Token):Void {
+        switch(t.value) {
+            case "public":
+                isPublic = true;
+                isPrivate = false;
+            case "private":
+                isPrivate = true;
+                isPublic = false;
+            case "static":
+                isStatic = true;
+            case "inline":
+                isInline = true;
+            default:
+        }
+    }
     
-    override public function toString():String {
-        return Std.string(visibility).toLowerCase() + " " + (isStatic ? "static " : "") + "function " + name + "(" + parameters.join(", ") + "):" + type;
+    public function reset():Void {
+        isPublic = false;
+        isPrivate = false;
+        isStatic = false;
+        isInline = false;
     }
     
 }

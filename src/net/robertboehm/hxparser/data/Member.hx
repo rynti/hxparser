@@ -28,13 +28,18 @@ class Member {
     
     public var name:String;
     public var parent:Codeblock;
-    public var type:Type;
+    public var type:String;
     public var isExplicitType:Bool;
     public var definitionLocation:Int;
     
     
     public function new() {
         
+    }
+    
+    
+    public function toString():String {
+        return "var " + name + ":" + type;
     }
     
 }

@@ -17,6 +17,8 @@
 
 package net.robertboehm.hxparser;
 
+import net.robertboehm.hxparser.Main;
+
 
 /**
  * This is a simple class.
@@ -27,13 +29,15 @@ class Human {
     
     public static var myStaticField:String;
     public var myField:String;
+    public var myDynamicField=5;
     public var myProperty(default, null):Int;
     private var myPrivateField:String;
     
     private function new() {}
     
-    public static function myStaticFunction():Void { }
-    public function myFunction():Void { }
-    private function myPrivateFunction():Void { }
+    public static function myStaticFunction(abc:Int):Void { }
+    public function myFunction(def:String):Void { }
+    public function myDynamicFunction(ghi) { }
+    private function myPrivateFunction(jkl:Float):Void { }
     
 }

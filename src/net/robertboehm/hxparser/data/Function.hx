@@ -28,10 +28,13 @@ class Function extends Member {
     
     public var base:Function;
     public var code:Codeblock;
+    public var parameters:Hash<Member>;
     
     
     public function new() {
         super();
+        
+        parameters = new Hash<Member>();
     }
     
 }

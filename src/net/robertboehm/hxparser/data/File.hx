@@ -19,27 +19,18 @@ package net.robertboehm.hxparser.data;
 
 
 /**
- * Represents a function of a type.
- * Example (Inside a class): function doSomething() {}
- * 
+ * ...
  * @author Robert Böhm
  */
-class TypeFunction extends TypeMember {
+class File extends Codeblock {
     
-    public var base:Function;
-    public var code:Codeblock;
-    public var parameters:Array<Member>;
-    
-    
+    public var packagePath:String;
+    public var imports:Array<String>;
+
     public function new() {
         super();
         
-        parameters = new Array<Member>();
-    }
-    
-    
-    override public function toString():String {
-        return Std.string(visibility).toLowerCase() + " " + (isStatic ? "static " : "") + "function " + name + "(" + parameters.join(", ") + "):" + type;
+        imports = new Array<String>();
     }
     
 }

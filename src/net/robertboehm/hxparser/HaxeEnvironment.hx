@@ -15,31 +15,25 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with hxparser. If not, see: <http://www.gnu.org/licenses/>.
 
-package net.robertboehm.hxparser.data;
+package net.robertboehm.hxparser;
+
+import haxe.io.Input;
+import net.robertboehm.hxparser.data.File;
+import net.robertboehm.hxparser.data.Type;
+import sys.FileSystem;
+import sys.io.FileInput;
 
 
 /**
- * Represents a function of a type.
- * Example (Inside a class): function doSomething() {}
- * 
+ * ...
  * @author Robert Böhm
  */
-class TypeFunction extends TypeMember {
+class HaxeEnvironment {
     
-    public var base:Function;
-    public var code:Codeblock;
-    public var parameters:Array<Member>;
-    
+    public var files:Hash<File>;
     
     public function new() {
-        super();
         
-        parameters = new Array<Member>();
-    }
-    
-    
-    override public function toString():String {
-        return Std.string(visibility).toLowerCase() + " " + (isStatic ? "static " : "") + "function " + name + "(" + parameters.join(", ") + "):" + type;
     }
     
 }

@@ -34,4 +34,9 @@ class TypeMember extends Member {
         super();
     }
     
+    
+    override public function toString():String {
+        return Std.string(visibility).toLowerCase() + " " + (isStatic ? "static " : "") + super.toString();
+    }
+    
 }

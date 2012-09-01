@@ -34,4 +34,11 @@ class TypeProperty extends TypeMember {
         super();
     }
     
+    
+    override public function toString():String {
+        return Std.string(visibility).toLowerCase() + " " + (isStatic ? "static " : "") + "var " + name + "(" +
+            Std.string(readability).toLowerCase() + ", " +
+            Std.string(writability).toLowerCase() + ")" + ":" + Std.string(type);
+    }
+    
 }

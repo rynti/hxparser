@@ -17,7 +17,10 @@
 
 package net.robertboehm.hxparser;
 
+import haxe.Log;
+import haxe.PosInfos;
 import net.robertboehm.hxparser.data.Codeblock;
+import net.robertboehm.hxparser.data.File;
 import net.robertboehm.hxparser.data.Function;
 import net.robertboehm.hxparser.data.Member;
 import net.robertboehm.hxparser.data.PropertyVisibility;
@@ -27,7 +30,16 @@ import net.robertboehm.hxparser.data.TypeFunction;
 import net.robertboehm.hxparser.data.TypeMember;
 import net.robertboehm.hxparser.data.TypeProperty;
 import net.robertboehm.hxparser.data.Visibility;
+import net.robertboehm.hxparser.HaxeEnvironment;
 import net.robertboehm.hxparser.Human;
+import net.robertboehm.hxparser.HxParser;
+import net.robertboehm.hxparser.Parser;
+import net.robertboehm.hxparser.Preprocessor;
+import net.robertboehm.hxparser.StringReader;
+import net.robertboehm.hxparser.Token;
+import net.robertboehm.hxparser.Tokenizer;
+import net.robertboehm.hxparser.TokenList;
+import net.robertboehm.hxparser.TokenType;
 
 
 /**
@@ -40,10 +52,30 @@ class Main {
     
     private function new() { }
     
+    public static function myTrace(v:Dynamic, ?inf:PosInfos):Void {
+        if (inf != null)
+            Sys.stdout().writeString(inf.fileName + ":" + inf.lineNumber + ": ");
+        Sys.stdout().writeString(Std.string(v) + "\n");
+        Sys.stdout().flush();
+    }
+    
     
     public static function main():Void {
+        Log.trace = myTrace;
+        
         Sys.stdout().writeString("hxparser is not a standalone application (yet)\n");
         
+        var rawData:String = sys.io.File.getContent("src/net/robertboehm/hxparser/Human.hx");
+        var processedData:String = new Preprocessor().parse(rawData);
+        var tokens:TokenList = new Tokenizer().parse(processedData);
+        var file:File = new Parser().parse(tokens);
+        trace(file.packagePath);
+        trace("Imports:");
+        for (i in file.imports) {
+            trace("  " + i);
+        }
+        
+        /*
         var Type_Void:Type = new Type();
         var Type_Main:Type = new Type();
         var TypeFunction_Main_main:TypeFunction = new TypeFunction();
@@ -75,6 +107,7 @@ class Main {
         Codeblock_Main_main.file = "Main.hx";
         Codeblock_Main_main.children = [];
         Codeblock_Main_main.members = [];
+        */
     }
     
 }
